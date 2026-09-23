@@ -1,0 +1,48 @@
+```yaml
+openapi: 3.1.0
+info:
+  title: Calculation API
+  version: 1.0.0
+paths:
+  /calcular:
+    post:
+      summary: Calculate subtotal, IVA and total
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - producto
+                - cantidad
+                - precio
+              properties:
+                producto:
+                  type: string
+                  example: nombre_del_producto
+                cantidad:
+                  type: integer
+                  example: 1
+                precio:
+                  type: number
+                  example: 100.00
+      responses:
+        '200':
+          description: Successful calculation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  producto:
+                    type: string
+                  cantidad:
+                    type: integer
+                  subtotal:
+                    type: number
+                  iva:
+                    type: number
+                  total:
+                    type: number
+```
